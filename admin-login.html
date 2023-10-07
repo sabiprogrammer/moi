@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Ondo State Ministry of Information | Login Page</title>
+  </head>
+  <body class="grey-body">
+    <header>
+      <a href="/">
+        <img src="./images/moi-logo.jpeg" alt="ondo state ministry of information logo" class="header-logo"/>
+      </a>
+    </header>
+    <section class="form-section-container">
+      <h1>Admin Login</h1>
+
+      <form action="">
+        <p class="error-message">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          incorrect login details
+        </p>
+        <div class="mb-2">
+          <label for="email">email address</label>
+          <input type="email" placeholder="Enter Email" id="email"/>
+        </div>
+        <div class="">
+          <label for="password">password</label>
+          <div class="password-container">
+            <input type="password" placeholder="Enter Password" id="password"/>
+            <i class="fa-solid fa-eye-slash slash"></i>
+            <i class="fa-regular fa-eye eye"></i>
+          </div>
+        </div>
+        <button class="btn btn-block sm mt-2 p-1">Log In</button>
+      </form>
+    </section>
+
+    <script type="text/javascript">
+      const errorMessageContainer = document.querySelector('.error-message');
+      errorMessageContainer.style.display = "none";
+      
+      const iSlash = document.querySelector('i.slash');
+      const iEye = document.querySelector('i.eye');
+
+      iEye.style.visibility = 'hidden';
+      
+      iSlash.addEventListener('click', (e) => {
+        e.currentTarget.previousElementSibling.type = 'text';
+        iEye.style.visibility = 'visible';
+        iSlash.style.visibility = 'hidden';
+      });
+
+      iEye.addEventListener('click', (e) => {
+        e.currentTarget.previousElementSibling.previousElementSibling.type = 'password';
+        iEye.style.visibility = 'hidden';
+        iSlash.style.visibility = 'visible';
+      });
+
+    </script>
+  </body>
+</html>

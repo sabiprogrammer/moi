@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Ondo State Ministry of Information | Admin Dashboard</title>
+  </head>
+  <body class="grey-body dashboard-body">
+    <aside class="show-sidebar">
+      <div>
+        <img src="./images/moi-logo.png" alt="moi logo" class="moi-logo" />
+      </div>
+
+      <div class="links-container mt-3">
+        <div>
+          <a href="#">
+            <i class="fa-solid fa-bars"></i>
+            <span>Dashboard</span>
+          </a>
+        </div>
+        <div class="active">
+          <a href="#">
+            <i class="fa-regular fa-newspaper"></i>
+            <span>posts</span>
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <i class="fa-solid fa-database"></i>
+            <span>statistics</span>
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <i class="fa-solid fa-gears"></i>
+            <span>settings</span>
+          </a>
+        </div>
+        <div>
+          <a href="#">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>logout</span>
+          </a>
+        </div>
+        <section class="write-new-post-container mt-5">
+          <img src="./images/creative-write.png" alt="creative image" />
+          <a href="./dashboard-new-post.html" class="btn">Write New Post</a>
+        </section>
+      </div>
+    </aside>
+
+    <main>
+      <section class="d-search-form-container">
+        <form action="#">
+          <input
+            type="search"
+            placeholder="Search Here"
+            class="d-search-form-input"
+          />
+          <button>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+        <div>
+          <i class="fa-regular fa-bell pr-1"></i>
+          Hello,
+          <span class="pr-2">&nbsp; Olu</span>
+          <img
+            src="./images/mark.jpg"
+            alt="person profile"
+            class="person-profile"
+          />
+        </div>
+      </section>
+
+      <section class="breadcrum">
+        <h1>
+          Post
+          <span>></span>
+          <small>add new post</small>
+        </h1>
+      </section>
+
+      <section>
+        <form action="./dashboard-all-posts.html" class="post-form">
+          <div>
+            <label for="#">Title</label>
+            <input type="text" placeholder="Enter Title Here" />
+          </div>
+          <div>
+            <label for="#">Post Image</label>
+            <input type="file" />
+          </div>
+          <div>
+            <label for="#">Body</label>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+          </div>
+          <button class="btn btn-outline">Save As Draft</button>
+          <button class="btn">Publish</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
