@@ -79,6 +79,7 @@
             src="./images/news3.jpeg"
             alt="news content image"
             class="news-image"
+            loading="lazy"
           />
           <div class="news-header-text-container container">
             <div class="category-container">
@@ -108,45 +109,22 @@
             </div>
           </div>
           <div class="mt-3">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Excepturi maxime molestiae cupiditate expedita libero ipsam ullam
-              nostrum voluptas iure, ratione adipisci quisquam maiores
-              consequuntur velit fugiat voluptatibus rerum totam. Rem!
-            </p>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Excepturi maxime molestiae cupiditate expedita libero ipsam ullam
-              nostrum voluptas iure, ratione adipisci quisquam maiores
-              consequuntur velit fugiat voluptatibus rerum totam. Rem!
-            </p>
-            <p>
+            <p class="news-detail">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               Excepturi maxime molestiae cupiditate expedita libero ipsam ullam
               nostrum voluptas iure, ratione adipisci quisquam maiores
               consequuntur velit fugiat voluptatibus rerum totam. Rem!
             </p>
 
-            <h2 class="blog-subheading">How it works</h2>
+            <!-- <h2 class="blog-subheading">How it works</h2> -->
 
-            <p>
+            <!-- <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               Excepturi maxime molestiae cupiditate expedita libero ipsam ullam
               nostrum voluptas iure, ratione adipisci quisquam maiores
               consequuntur velit fugiat voluptatibus rerum totam. Rem!
             </p>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Excepturi maxime molestiae cupiditate expedita libero ipsam ullam
-              nostrum voluptas iure, ratione adipisci quisquam maiores
-              consequuntur velit fugiat voluptatibus rerum totam. Rem!
-            </p>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Excepturi maxime molestiae cupiditate expedita libero ipsam ullam
-              nostrum voluptas iure, ratione adipisci quisquam maiores
-              consequuntur velit fugiat voluptatibus rerum totam. Rem!
-            </p>
+             -->
           </div>
         </article>
       </section>
@@ -330,5 +308,52 @@
     </a>
 
     <script src="./js/script.js"></script>
+    <script type="text/javascript">
+      let postID = localStorage.getItem("postID")
+      ? JSON.parse(localStorage.getItem("postID"))
+      : "";
+
+      let postSection = localStorage.getItem("postSection")
+      ? JSON.parse(localStorage.getItem("postSection"))
+      : "";
+
+      let apiUrl;
+      
+      if (postSection === "news") {
+        apiUrl = 'https://moi.myclan.ng/v1/endpoints/news/fetchNewsReleaseById';
+      }else if(postSection === "press"){
+        apiUrl = 'https://moi.myclan.ng/v1/endpoints/press/fetchPressReleaseById';
+      }else if(postSection === "blog"){
+        apiUrl = 'https://moi.myclan.ng/v1/endpoints/blog/fetchBlogReleaseById';
+      }
+      let raw = JSON.stringify({
+        press_id: postID,
+      });
+
+      let requestOptions = {
+        method: "POST",
+        body: raw,
+        redirect: "follow",
+      };
+      
+      // FETCHING POST INFO
+      fetch(apiUrl, requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          const postHeading = document.querySelector("h1");
+          const newsDetail = document.querySelector(".news-detail");
+          const newsImage = document.querySelector(".news-image");
+          const newsTitle = result.data[0].release_title;
+
+          newsDetail.innerHTML = result.data[0].release_text;
+          postHeading.textContent = newsTitle;
+          document.title = `${newsTitle} | MOI | News Details Page`;
+
+          if (result.data[0].release_img.trim()) {
+            newsImage.src = result.data[0].release_img;
+          }
+        })
+        .catch((error) => console.log("error", error));
+    </script>
   </body>
 </html>

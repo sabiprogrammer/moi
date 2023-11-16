@@ -92,23 +92,77 @@
       </section>
 
       <section>
-        <form action="./dashboard-all-posts.html" class="post-form">
+        <form
+          action="https://moi.myclan.ng/v1/endpoints/blog/createBlogRelease"
+          method="POST"
+          class="post-form"
+        >
           <div>
-            <label for="#">Title</label>
-            <input type="text" placeholder="Enter Title Here" />
+            <label for="post_title">Title</label>
+            <input
+              type="text"
+              placeholder="Enter Title Here"
+              id="post_title"
+              name="release_title
+            "
+            />
           </div>
           <div>
-            <label for="#">Post Image</label>
-            <input type="file" />
+            <label for="post_image">Post Image</label>
+            <input type="file" name="post_image" id="post-image" accept="image/*" />
           </div>
           <div>
-            <label for="#">Body</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <label for="post_body">Body</label>
+            <textarea
+              name="post_body"
+              id="post_body"
+              cols="30"
+              rows="10"
+              name="release_text"
+            ></textarea>
           </div>
-          <button class="btn btn-outline">Save As Draft</button>
+          <button class="btn btn-outline publish-btn">Save As Draft</button>
           <button class="btn">Publish</button>
         </form>
       </section>
     </main>
   </body>
+
+  <script type="text/javascript">
+    let form = document.querySelector(".post-form");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let publishBtn = document.querySelector(".publish-btn");
+      let postTitle = document.getElementById("post_title");
+      let postImage = document.getElementById("post-image");
+      let postBody = document.getElementById("post_body");
+
+      let formdata = new FormData();
+      formdata.append("release_title", postTitle.value);
+      formdata.append("release_text", postBody.value);
+      formdata.append("publisher_id", "");
+      formdata.append("publisher_name", "");
+      formdata.append("release_img", postImage.value);
+
+      let requestOptions = {
+        method: "POST",
+        body: formdata,
+        redirect: "follow",
+      };
+
+      fetch(
+        "https://moi.myclan.ng/v1/endpoints/blog/createBlogRelease",
+        requestOptions
+      )
+        .then((response) => response.text())
+        .then((result) => {
+          // const domainName = window.location.host;
+          // window.location.href = `${domainName}/dashboard-all-posts.html`;
+          window.location.replace(`/dashboard-all-posts.html`);
+        })
+        .catch((error) => console.log("error", error));
+    });
+  </script>
 </html>

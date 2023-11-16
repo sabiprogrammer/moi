@@ -358,7 +358,7 @@ PRESS RELEASE SECTION
 .press-articles-container > .press-news:focus {
   transform: translateY(-10px);
 }
-.press-articles-container > .press-news > img {
+.press-articles-container .press-news > img {
   width: 300px;
 }
 .press-timeline {
@@ -406,10 +406,14 @@ LATEST NEWS STYLING
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+.inner-news-articles-container{
+  display: flex;
+  gap: 1em;
+}
 .news-articles-container > .news {
   width: 400px;
 }
-.news-articles-container > .news > img {
+.news-articles-container .news > img {
   width: 400px;
 }
 .news-title {

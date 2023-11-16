@@ -26,6 +26,13 @@
     <title>Ondo State Ministry of Information | Home Page</title>
   </head>
   <body>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v18.0&appId=186521386723759"
+      nonce="84FhvUVo"
+    ></script>
     <header class="pt-2">
       <nav id="nav" class="container">
         <div class="nav-header">
@@ -280,6 +287,8 @@
               by <span class="press-author">taiwo Folarin</span>
             </p>
           </div>
+
+          <!--
           <div class="press-news">
             <img src="./images/Gov-Akeredolu.jpg" alt="governor akeredolu" />
             <p class="press-timeline">
@@ -351,6 +360,7 @@
               by <span class="press-author">taiwo Folarin</span>
             </p>
           </div>
+          -->
         </article>
       </section>
       <!-- press release section ends -->
@@ -362,40 +372,43 @@
           <a href="./news.html" class="see-all-link">See All</a>
         </div>
         <article class="news-articles-container">
-          <div class="news">
-            <img src="./images/news6.jpg" alt="governor akeredolu" />
-            <p class="press-timeline">
-              <span>Business</span>
-              <span>|</span>
-              <span>August 18, 2023</span>
-            </p>
-            <h3 class="news-title">
-              <a href="./news-details.html">
-                covid-19: Akeredolu's aide, Asade donates food items, washing
-                hand buckets and nose masks to residents in akure
-              </a>
-            </h3>
-            <p class="press-author-p">
-              by <span class="press-author">taiwo Folarin</span>
-            </p>
+          <div class="inner-news-articles-container">
+            <div class="news">
+              <img src="./images/news6.jpg" alt="governor akeredolu" />
+              <p class="press-timeline">
+                <span>Business</span>
+                <span>|</span>
+                <span>August 18, 2023</span>
+              </p>
+              <h3 class="news-title">
+                <a href="./news-details.html">
+                  covid-19: Akeredolu's aide, Asade donates food items, washing
+                  hand buckets and nose masks to residents in akure
+                </a>
+              </h3>
+              <p class="press-author-p">
+                by <span class="press-author">taiwo Folarin</span>
+              </p>
+            </div>
+            <!-- <div class="news">
+              <img src="./images/news6.jpg" alt="governor akeredolu" />
+              <p class="press-timeline">
+                <span>Business</span>
+                <span>|</span>
+                <span>August 18, 2023</span>
+              </p>
+              <h3 class="news-title">
+                <a href="./news-details.html">
+                  covid-19: Akeredolu's aide, Asade donates food items, washing
+                  hand buckets and nose masks to residents in akure
+                </a>
+              </h3>
+              <p class="press-author-p">
+                by <span class="press-author">taiwo Folarin</span>
+              </p>
+            </div> -->
           </div>
-          <div class="news">
-            <img src="./images/news7.webp" alt="governor akeredolu" />
-            <p class="press-timeline">
-              <span>Business</span>
-              <span>|</span>
-              <span>August 18, 2023</span>
-            </p>
-            <h3 class="press-release-title">
-              <a href="./news-details.html">
-                covid-19: Akeredolu's aide, Asade donates food items, washing
-                hand buckets and nose masks to residents in akure
-              </a>
-            </h3>
-            <p class="press-author-p">
-              by <span class="press-author">taiwo Folarin</span>
-            </p>
-          </div>
+
           <aside>
             <div>
               <img src="./images/news8.jpg" alt="news image" />
@@ -659,7 +672,7 @@
             </p>
             <a href="./blog-details.html">Read Article</a>
           </article>
-          <article>
+          <!-- <article>
             <img src="./images/news1.webp" alt="blog title" />
             <h3>Follow this formular for a winning fit everytime</h3>
             <div class="blog-timeline">
@@ -742,7 +755,7 @@
               saepe minus voluptatibus cupiditate.
             </p>
             <a href="./blog-details.html">Read Article</a>
-          </article>
+          </article> -->
         </div>
       </section>
       <!-- blog section ends -->
@@ -753,6 +766,32 @@
           <h2 class="section-header__sm">Social Media</h2>
           <div class="all-media-container">
             <div class="each-media-container">
+              <div class="each-media">
+                <div class="timeline-container">
+                  <div>
+                    <h3>Ondo MOI</h3>
+                    <!-- <p>23 August 2023</p> -->
+                  </div>
+                  <i class="fa-brands fa-facebook md"></i>
+                </div>
+                <div
+                  class="fb-post"
+                  data-href="https://fb.watch/ok6TXomMOW/"
+                  data-width="400"
+                  data-height="400"
+                ></div>
+              </div>
+              <a
+                href="https://web.facebook.com/www.ondostatemoi.gov.ng/?_rdc=1&_rdr"
+                target="_blank"
+                class="see-more"
+              >
+                see more
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+            </div>
+
+            <!-- <div class="each-media-container">
               <div class="each-media">
                 <div class="timeline-container">
                   <div>
@@ -774,7 +813,7 @@
                 see more
                 <i class="fa-brands fa-facebook"></i>
               </a>
-            </div>
+            </div> -->
             <div class="each-media-container">
               <div class="each-media">
                 <div class="timeline-container">
@@ -802,23 +841,50 @@
                 <div class="timeline-container">
                   <div>
                     <h3>Ondo MOI</h3>
-                    <p>23 August 2023</p>
+                    <!-- <p class="tweet-date">23 August 2023</p> -->
+                  </div>
+                  <i class="fa-brands fa-twitter md"></i>
+                </div>
+                <a
+                  class="twitter-timeline"
+                  data-width="400"
+                  data-height="400"
+                  href="https://twitter.com/OndoInformation?ref_src=twsrc%5Etfw"
+                  >Tweets by OndoInformation</a
+                >
+                <script
+                  async
+                  src="https://platform.twitter.com/widgets.js"
+                  charset="utf-8"
+                ></script>
+              </div>
+              <a href="#" target="_blank" class="see-more see-more-tweet">
+                see more
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+            </div>
+            <!-- <div class="each-media-container">
+              <div class="each-media">
+                <div class="timeline-container">
+                  <div>
+                    <h3>Ondo MOI</h3>
+                    <p class="tweet-date">23 August 2023</p>
                   </div>
                   <i class="fa-brands fa-twitter md"></i>
                 </div>
                 <img src="./images/news5.webp" alt="latest from twitter" />
                 <p class="sm-intro">
-                  <a href="#">
+                  <a href="#" target="_blank" class="tweet-heading">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Optio numquam, cumque blanditiis ducimu!
                   </a>
                 </p>
               </div>
-              <a href="#" class="see-more">
+              <a href="#" target="_blank" class="see-more see-more-tweet">
                 see more
                 <i class="fa-brands fa-twitter"></i>
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -902,6 +968,7 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/bubblejs.js"></script>
 
     <!-- Initialize Swiper -->
     <script>
@@ -949,6 +1016,252 @@
           el: ".swiper-pagination",
         },
       });
+    </script>
+
+    <script>
+      const apiUrl =
+        "https://moi.myclan.ng/v1/endpoints/blog/fetchAllBlogReleases";
+
+      fetch(apiUrl)
+        .then((response) => {
+          // Check if the response status is OK (200)
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          // Parse the JSON in the response
+          return response.json();
+        })
+        .then((data) => {
+          // Handle the data from the response
+          // console.log("Data:", data);
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error("Fetch error:", error);
+        });
+
+      // FETCHING PRESS RELEASES
+      fetch("https://moi.myclan.ng/v1/endpoints/press/fetchAllPressReleases")
+        .then((response) => response.json())
+        .then((result) => {
+          const pressContainer = document.querySelector(
+            ".press-articles-container"
+          );
+          const posts = result.data.slice(0, 6);
+          let postsArray = [];
+
+          posts.forEach((post) => {
+            if (
+              post.release_title.trim().length > 1 ||
+              post.release_text.trim().length > 1
+            ) {
+              let postTemplate = `
+                  <div class="press-news">
+                    <img src="${
+                      post.release_img
+                        ? post.release_img
+                        : "./images/Gov-Akeredolu.jpg"
+                    }" alt="${post.release_title}" />
+                    <p class="press-timeline">
+                      <span>Business</span>
+                      <span>|</span>
+                      <span>August 18, 2023</span>
+                    </p>
+                    <h3 class="press-release-title">
+                      <a href="./news-details.html" id="${
+                        post.release_id
+                      }">
+                        ${
+                          post.release_title.length > 100
+                            ? post.release_title.substring(0, 110) + "..."
+                            : post.release_title
+                        }
+                      </a>
+                    </h3>
+                    <p class="press-author-p">
+                      by <span class="press-author">${
+                        post.publisher_name
+                      }</span>
+                    </p>
+                  </div>
+                `;
+              postsArray.push(postTemplate);
+            }
+          });
+          postsArray = postsArray.join("");
+          pressContainer.innerHTML = postsArray;
+
+          const pressTitles = document.querySelectorAll(".press-release-title");
+
+          pressTitles.forEach((title) => {
+            title.addEventListener("click", (e) => {
+              e.preventDefault();
+
+              let postID = e.target.id;
+              localStorage.setItem("postID", JSON.stringify(postID));
+              localStorage.setItem("postSection", JSON.stringify('press'));
+
+              location.href = "./news-details.html";
+            });
+          });
+        })
+        .catch((error) => console.log("error", error));
+
+      // FETCHING LATEST NEWS
+      fetch("https://moi.myclan.ng/v1/endpoints/news/fetchAllNewsReleases")
+        .then((response) => response.json())
+        .then((result) => {
+          const newsContainer = document.querySelector(
+            ".inner-news-articles-container"
+          );
+          const news = result.data.slice(0, 3);
+          let newsArray = [];
+
+          news.forEach((post) => {
+            if (
+              post.release_title.trim().length > 1 &&
+              post.release_text.trim().length > 1
+            ) {
+              let newsTemplate = `
+                  <div class="news">
+                    <img src="${
+                      post.release_img
+                        ? post.release_img
+                        : "./images/Gov-Akeredolu.jpg"
+                    }" alt="${post.release_title}" />
+                    <p class="press-timeline">
+                      <span>Business</span>
+                      <span>|</span>
+                      <span>August 18, 2023</span>
+                    </p>
+                    <h3 class="news-title">
+                      <a href="./news-details.html" id="${
+                        post.release_id
+                      }">
+                        ${
+                          post.release_title.length > 100
+                            ? post.release_title.substring(0, 110) + "..."
+                            : post.release_title
+                        }
+                      </a>
+                    </h3>
+                    <p class="press-author-p">
+                      by <span class="press-author">${
+                        post.publisher_name
+                      }</span>
+                    </p>
+                  </div>
+                  `;
+              newsArray.push(newsTemplate);
+            }
+          });
+          newsArray = newsArray.join("");
+          newsContainer.innerHTML = newsArray;
+
+          const newsTitle = document.querySelectorAll(".news-title");
+          newsTitle.forEach((title) => {
+            title.addEventListener("click", (e) => {
+              e.preventDefault();
+
+              let postID = e.target.id;
+              localStorage.setItem("postID", JSON.stringify(postID));
+              localStorage.setItem("postSection", JSON.stringify('news'));
+
+              location.href = "./news-details.html";
+            });
+          });
+        })
+        .catch((error) => console.log("error", error));
+
+      // FETCHING LATEST BLOG POSTS
+      fetch("https://moi.myclan.ng/v1/endpoints/blog/fetchAllBlogReleases")
+        .then((response) => response.json())
+        .then((result) => {
+          const blogsContainer = document.querySelector(".blogs-container");
+          const blogs = result.data.slice(0, 6);
+          let blogsArray = [];
+
+          console.log(blogs);
+          
+          blogs.forEach((post) => {
+            if (
+              post.release_title.trim().length > 1 &&
+              post.release_text.trim().length > 1
+            ) {
+              let blogsTemplate = `
+              <article>
+                <img src="${
+                  post.release_img
+                    ? post.release_img
+                    : "./images/Gov-Akeredolu.jpg"
+                }" alt="${post.release_title}" />
+                <h3>${
+                  post.release_title.length > 100
+                    ? post.release_title.substring(0, 110) + "..."
+                    : post.release_title
+                }</h3>
+                <div class="blog-timeline">
+                  <span>
+                    <i></i>
+                    ${post.publisher_name}
+                  </span>
+                  <span>
+                    <i></i>
+                    12 August 2023
+                  </span>
+                </div>
+                <p>
+                  ${
+                    post.release_title.length > 100
+                      ? post.release_title.substring(0, 150) + "..."
+                      : post.release_title
+                  }
+                </p>
+                <a href="./blog-details.html" class="blog-t" id="${
+                        post.release_id
+                      }">Read Article</a>
+              </article>
+              `;
+              blogsArray.push(blogsTemplate);
+            }
+          });
+          blogsArray = blogsArray.join("");
+          blogsContainer.innerHTML = blogsArray;
+
+          const blogTitle = document.querySelectorAll(".blog-t");
+          blogTitle.forEach((title) => {
+            title.addEventListener("click", (e) => {
+              e.preventDefault();
+
+              let postID = e.target.id;
+              localStorage.setItem("postID", JSON.stringify(postID));
+              localStorage.setItem("postSection", JSON.stringify('blog'));
+
+              location.href = "./news-details.html";
+            });
+          });
+        })
+        .catch((error) => console.log("error", error));
+
+      // FETCHING LATEST TWITTER POSTS
+      fetch("https://litehouse.ng/tweets/")
+        .then((response) => response.json())
+        .then((result) => {
+          const tweetHeading = document.querySelector(".tweet-heading");
+          const tweetDate = document.querySelector(".tweet-date");
+          const moreTweet = document.querySelector(".see-more-tweet");
+          const timeTweeted = result[0].created_at.slice(0, 11);
+          const tweetText = result[0].text;
+          const tweetUrl = result[0].entities.urls[0].url;
+
+          tweetDate.textContent = timeTweeted;
+          tweetHeading.textContent = tweetText;
+          tweetHeading.setAttribute("href", tweetUrl);
+          moreTweet.setAttribute("href", "https://twitter.com/OndoInformation");
+
+          console.log(result[0]);
+        });
     </script>
   </body>
 </html>

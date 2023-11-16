@@ -95,7 +95,7 @@
         <a href="./dashboard-new-post.html" class="btn">Add New Post</a>
       </div>
       <section class="all-posts-section-container">
-        <article class="admin-article">
+        <!-- <article class="admin-article">
           <div>
             <img src="./images/Gov-Akeredolu.jpg" alt="post image" />
           </div>
@@ -123,7 +123,9 @@
               </a>
             </div>
           </div>
-        </article>
+        </article> -->
+
+        <!--
         <article class="admin-article">
           <div>
             <img src="./images/commissioner-bamidele.jpg" alt="post image" />
@@ -182,7 +184,74 @@
             </div>
           </div>
         </article>
+        -->
       </section>
     </main>
+
+    <script type="text/javascript">
+      // location.reload(true);
+      const postsContainer = document.querySelector(
+        ".all-posts-section-container"
+      );
+
+      let formdata = new FormData();
+      let requestOptions = {
+        method: "GET",
+        // body: formdata,
+        redirect: "follow",
+      };
+
+      fetch(
+        "https://moi.myclan.ng/v1/endpoints/blog/fetchAllBlogReleases",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          let posts = result.data;
+          let postTemplateArray = [];
+
+          posts.forEach((post) => {
+            if (
+              post.release_title.trim().length > 1 &&
+              post.release_text.trim().length > 1
+              ) {
+              // console.log(post);
+              let postTemplate = `
+                <article class="admin-article">
+                <div>
+                  <img src="${post.release_img || './images/Gov-Akeredolu.jpg'}" alt="${post.release_title}" />
+                </div>
+                <div>
+                  <h2>${post.release_title}</h2>
+                  <p>
+                    ${post.release_text}
+                  </p>
+                  <small>10 hours ago</small>
+                </div>
+                <div class="flex mr-5">
+                  <div class="action-container mr-1">
+                    <a href="#">
+                      <i class="fa-regular fa-pen-to-square"></i>
+                      <span>Edit</span>
+                    </a>
+                  </div>
+                  <div class="action-container">
+                    <a href="#">
+                      <i class="fa-solid fa-trash-can"></i>
+                      <span>Delete</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+              `;
+              postTemplateArray.push(postTemplate);
+            }
+          });
+          postTemplateArray = postTemplateArray.join("");
+
+          postsContainer.innerHTML = postTemplateArray;
+        })
+        .catch((error) => console.log("error", error));
+    </script>
   </body>
 </html>
