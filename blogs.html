@@ -354,8 +354,9 @@
             />
           </h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
-            aperiam, quisquam assumenda incidunt atque commodi perferendis
+            To promote, preserve, and propagate the rich cultural
+            heritage of Ondo state, empowering its diverse communities through
+            accessible and innovative information dissemination.
           </p>
         </div>
         <div>
@@ -412,5 +413,75 @@
     </a>
 
     <script src="./js/script.js"></script>
+    <script type="text/javascript">
+      // FETCHING BLOGS FOR HEADER
+      fetch("https://moi.myclan.ng/v1/endpoints/blog/fetchAllBlogReleases")
+        .then((response) => response.json())
+        .then((result) => {
+          const blogsContainer = document.querySelector("#news-container");
+          const blogs = result.data.slice(0, 5);
+          let blogsArray = [];
+
+          blogs.forEach((post) => {
+            if (
+              post.release_title.trim().length > 1 &&
+              post.release_text.trim().length > 1
+            ) {
+              let blogsTemplate = `
+                <article>
+                  <img src="${
+                      post.release_img
+                        ? post.release_img
+                        : "./images/Gov-Akeredolu.jpg"
+                    }" alt="${post.release_title}" />
+                  <h3>${
+                        post.release_title.length > 100
+                          ? post.release_title.substring(0, 110) + "..."
+                          : post.release_title
+                      }
+                  </h3>
+                  <div class="blog-timeline">
+                    <span>
+                      <i></i>
+                      ${post.publisher_name}
+                    </span>
+                    <span>
+                      <i></i>
+                      12 August 2023
+                    </span>
+                  </div>
+                  <p>
+                    ${
+                          post.release_title.length > 100
+                            ? post.release_title.substring(0, 150) + "..."
+                            : post.release_title
+                        }
+                  </p>
+                  <a href="#" class="blog-t" id="${
+                  post.release_id
+                  }>Read Article</a>
+                </article>
+              `;
+              blogsArray.push(blogsTemplate);
+            }
+          });
+          blogsArray = blogsArray.join("");
+          blogsContainer.innerHTML = blogsArray;
+
+          const blogTitle = document.querySelectorAll(".blog-t");
+          blogTitle.forEach((title) => {
+            title.addEventListener("click", (e) => {
+              e.preventDefault();
+
+              let postID = e.target.id;
+              localStorage.setItem("postID", JSON.stringify(postID));
+              localStorage.setItem("postSection", JSON.stringify("blog"));
+
+              location.href = "./news-details.html";
+            });
+          });
+        })
+        .catch((error) => console.log("error", error));
+    </script>
   </body>
 </html>

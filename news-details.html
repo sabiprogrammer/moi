@@ -132,7 +132,7 @@
       <!-- Related Blogs -->
       <section class="container mt-5">
         <div class="press-container">
-          <h2 class="section-header">Related News</h2>
+          <h2 class="section-header">Other <span class="cat-sec">News</span></h2>
         </div>
         <article class="press-articles-container">
           <div class="press-news">
@@ -250,8 +250,9 @@
             />
           </h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
-            aperiam, quisquam assumenda incidunt atque commodi perferendis
+            To promote, preserve, and propagate the rich cultural
+            heritage of Ondo state, empowering its diverse communities through
+            accessible and innovative information dissemination.
           </p>
         </div>
         <div>
@@ -309,6 +310,7 @@
 
     <script src="./js/script.js"></script>
     <script type="text/javascript">
+      const catSec = document.querySelector('.cat-sec');
       let postID = localStorage.getItem("postID")
       ? JSON.parse(localStorage.getItem("postID"))
       : "";
@@ -318,13 +320,20 @@
       : "";
 
       let apiUrl;
+      let apiUrl2;
       
       if (postSection === "news") {
         apiUrl = 'https://moi.myclan.ng/v1/endpoints/news/fetchNewsReleaseById';
+        apiUrl2 = 'https://moi.myclan.ng/v1/endpoints/news/fetchAllNewsReleases';
+        catSec.textContent = "News";
       }else if(postSection === "press"){
         apiUrl = 'https://moi.myclan.ng/v1/endpoints/press/fetchPressReleaseById';
+        apiUrl2 = 'https://moi.myclan.ng/v1/endpoints/press/fetchAllPressReleases';
+        catSec.textContent = "Press Releases";
       }else if(postSection === "blog"){
         apiUrl = 'https://moi.myclan.ng/v1/endpoints/blog/fetchBlogReleaseById';
+        apiUrl2 = 'https://moi.myclan.ng/v1/endpoints/blog/fetchAllBlogReleases';
+        catSec.textContent = "Blog Posts";
       }
       let raw = JSON.stringify({
         press_id: postID,
@@ -354,6 +363,73 @@
           }
         })
         .catch((error) => console.log("error", error));
+
+
+       // FETCHING OTHERS SECTION
+       fetch(apiUrl2)
+        .then((response) => response.json())
+        .then((result) => {
+          const blogsContainer = document.querySelector(".press-articles-container");
+          const blogs = result.data.slice(0, 5);
+          let blogsArray = [];
+
+          blogs.forEach((post) => {
+            if (
+              post.release_title.trim().length > 1 &&
+              post.release_text.trim().length > 1
+            ) {
+              let blogsTemplate = `
+              <div class="press-news">
+                <img src="${
+                  post.release_img
+                    ? post.release_img
+                    : "./images/Gov-Akeredolu.jpg"
+                }" alt="${post.release_title}" />
+                <p class="press-timeline">
+                  <span>Business</span>
+                  <span>|</span>
+                  <span>August 18, 2023</span>
+                </p>
+                <h3 class="press-release-title">
+                  <a href="./blog-details.html" class="blog-t" id="${
+                  post.release_id
+                  }">
+                    ${
+                      post.release_title.length > 100
+                        ? post.release_title.substring(0, 110) + "..."
+                        : post.release_title
+                    }
+                  </a>
+                </h3>
+                <p class="press-author-p">
+                  by <span class="press-author">${post.publisher_name}</span>
+                </p>
+              </div>
+              `;
+              blogsArray.push(blogsTemplate);
+            }
+          });
+          blogsArray = blogsArray.join("");
+          blogsContainer.innerHTML = blogsArray;
+
+          const blogTitle = document.querySelectorAll(".blog-t");
+          alert("ew2")
+          blogTitle.forEach((title) => {
+            title.addEventListener("click", (e) => {
+              alert("ss")
+              e.preventDefault();
+
+              let postID = e.target.id;
+              localStorage.setItem("postID", JSON.stringify(postID));
+              localStorage.setItem("postSection", JSON.stringify("blog"));
+
+              // location.href = "./news-details.html";
+            });
+          });
+        })
+        .catch((error) => console.log("error", error));
+
+     
     </script>
   </body>
 </html>
