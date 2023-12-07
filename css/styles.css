@@ -931,6 +931,59 @@ SOCIAL MEDIA SECTION STYLING
 .author-details .posted-on {
   opacity: 0.5;
 }
+
+/* ACTIVE DIRECTORY PAGE STYLING */
+.hero-container .active-d-text-head{
+  font-size: var(--bigger-text-size);
+}
+.all-history-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5em;
+}
+.history-container{
+  border: .2px solid grey;
+  border-radius: 5px;
+  padding: 15px;
+  transition: var(--transition);
+}
+.history-container:hover,
+.history-container:focus,
+.history-container:active{
+  background-color: rgb(208, 204, 204);
+}
+.history-container a{
+  color: var(--clr-black);
+}
+.history-container a h3{
+  text-transform: capitalize;
+}
+.history-container a p{
+  margin-bottom: 0;
+}
+.senators-history-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.commissioners-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+.commissioners-container div img{
+  width: 100%;
+  border-radius: 5px;
+  transition: var(--transition);
+}
+.commissioners-container div img:hover,
+.commissioners-container div img:focus,
+.commissioners-container div img:active{
+  transform: translateY(-10px);
+}
+.commissioners-container div p{
+  color: var(--primary-color);
+  font-size: 13px;
+}
 /*
 =============== 
 FOOTER SECTION STYLING
@@ -1280,6 +1333,11 @@ MEDIA QUERIES
   .blogs-container.blogs-page {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* active directory */
+  .commissioners-container{
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media screen and (max-width: 820px) {
   .fixed-nav {
@@ -1355,6 +1413,15 @@ MEDIA QUERIES
     flex-direction: column;
   }
 
+  /* active directory */
+  .senators-history-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .commissioners-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   /* footer styling */
   .footer-details {
     grid-template-columns: repeat(2, 1fr);
@@ -1395,6 +1462,11 @@ MEDIA QUERIES
   .management-container {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  /* active directory page */
+  .all-history-container{
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -1437,6 +1509,14 @@ MEDIA QUERIES
   .author-details {
     flex-direction: column;
     gap: 1em;
+  }
+
+  /* active directory */
+  .senators-history-container{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .commissioners-container{
+    grid-template-columns: repeat(1, 1fr);
   }
 
   /* footer styling */
