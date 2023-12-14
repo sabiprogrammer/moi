@@ -413,10 +413,8 @@
           blogsContainer.innerHTML = blogsArray;
 
           const blogTitle = document.querySelectorAll(".blog-t");
-          alert("ew2")
           blogTitle.forEach((title) => {
             title.addEventListener("click", (e) => {
-              alert("ss")
               e.preventDefault();
 
               let postID = e.target.id;
