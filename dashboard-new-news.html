@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="./css/styles.css" />
     <title>Ondo State Ministry of Information | Admin Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
   </head>
   <body class="grey-body dashboard-body">
     <aside class="show-sidebar">
@@ -110,6 +111,7 @@
               name="post_image"
               id="post-image"
               accept="image/*"
+              required
             />
           </div>
           <div>
@@ -139,16 +141,16 @@
       let postTitle = document.getElementById("post_title");
       let postImage = document.getElementById("post-image");
       let postBody = document.getElementById("post_body");
+      
+      postImage = URL.createObjectURL(postImage.files[0]);
 
       let formdata = new FormData();
       formdata.append("release_title", postTitle.value);
       formdata.append("release_text", postBody.value);
       formdata.append("publisher_id", "");
       formdata.append("publisher_name", "");
-      formdata.append("release_img", postImage.value);
+      formdata.append("release_img", postImage);
     
-    //   console.log(postImage.value);
-      
       let requestOptions = {
         method: "POST",
         body: formdata,

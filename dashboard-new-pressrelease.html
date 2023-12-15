@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="./css/styles.css" />
     <title>Ondo State Ministry of Information | Admin Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
   </head>
   <body class="grey-body dashboard-body">
     <aside class="show-sidebar">
@@ -147,22 +148,23 @@
       formdata.append("publisher_name", "");
       formdata.append("release_img", postImage.value);
     
-    //   console.log(postImage.value);
+      console.log(URL.createObjectURL(postImage.files[0]));
+      console.log(postImage.files[0]);
       
-      let requestOptions = {
-        method: "POST",
-        body: formdata,
-        redirect: "follow",
-      };
+    //   let requestOptions = {
+    //     method: "POST",
+    //     body: formdata,
+    //     redirect: "follow",
+    //   };
 
-      let apiUrl = `https://moi.myclan.ng/v1/endpoints/press/createPressRelease`;
+    //   let apiUrl = `https://moi.myclan.ng/v1/endpoints/press/createPressRelease`;
 
-      fetch(apiUrl, requestOptions)
-        .then((response) => response.text())
-        .then((result) => {
-          window.location.replace(`/dashboard-all-posts.html`);
-        })
-        .catch((error) => console.log("error", error));
+    //   fetch(apiUrl, requestOptions)
+    //     .then((response) => response.text())
+    //     .then((result) => {
+    //       window.location.replace(`/dashboard-all-posts.html`);
+    //     })
+    //     .catch((error) => console.log("error", error));
 
     });
   </script>
