@@ -77,6 +77,9 @@ p {
   font-family: "Lato", sans-serif;
   font-size: var(--text-size);
 }
+#make-primary-color{
+  color: var(--primary-color);
+}
 .h3-make-bigger {
   font-size: calc(var(--medium-text-size) - 5px);
 }
